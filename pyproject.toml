@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "backend-pubmed"
+version = "0.1.0"
+description = "CLI tool to fetch PubMed papers containing pharma/biotech authors."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "pubmed" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+biopython = "^1.83"
+
+[tool.poetry.dev-dependencies]
+mypy = "*"
+pytest = "*"
+
+[tool.poetry.scripts]
+get-papers-list = "cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
